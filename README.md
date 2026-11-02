@@ -47,7 +47,17 @@ CREATE TABLE students (
 
 ### 2. Configure your connection
 
-`StudentRepository` currently connects to `jdbc:mysql://localhost:3306/jdbc_practice` with the MySQL user `root` and password `root`. Update these values in `src/main/java/org/example/Repository/StudentRepository.java` to match your local MySQL setup.
+Configure the connection through environment variables. `DB_URL` is optional and defaults to `jdbc:mysql://localhost:3306/jdbc_practice`; set `DB_USERNAME` to your MySQL user and `DB_PASSWORD` to its password. The username defaults to `root`; the password has no source-code default.
+
+For a temporary PowerShell session:
+
+```powershell
+$env:DB_URL = "jdbc:mysql://localhost:3306/jdbc_practice"
+$env:DB_USERNAME = "root"
+$env:DB_PASSWORD = "your-local-password"
+```
+
+Set these variables in IntelliJ's Run Configuration when launching the application from the IDE. Do not commit real credentials.
 
 ### 3. Build and run
 

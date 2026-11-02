@@ -5,9 +5,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class StudentRepository {
-    String url = "jdbc:mysql://localhost:3306/jdbc_practice";
-    String username= "root";
-    String password ="root";
+    private final String url = System.getenv().getOrDefault(
+            "DB_URL", "jdbc:mysql://localhost:3306/jdbc_practice");
+    private final String username = System.getenv().getOrDefault("DB_USERNAME", "root");
+    private final String password = System.getenv("DB_PASSWORD");
 
     public void createStudent(Student student){
         String sql ="""
